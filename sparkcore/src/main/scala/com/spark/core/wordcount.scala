@@ -10,7 +10,9 @@ object wordcount {
     val conf = new SparkConf()
     conf.setAppName("wordcount programme")
     
+    
     val sc = new SparkContext(conf)
+    sc.setLogLevel("ERROR")
     val  r1 = sc.textFile(args(0))
     val r2 = r1.flatMap(x=>x.split(""))
     val r3 = r2.map(x=>(x,1))
